@@ -11,17 +11,19 @@ const useStyles = makeStyles({
 
 const Comment = (props) => {
     const {email, body} = props.comment;
+    const classes = useStyles();
 
     const [user, setUser] = useState([]);
 
+    // random user api
     useEffect(() => {
         fetch('https://randomuser.me/api/')
         .then(res => res.json())
         .then(data => setUser(data.results[0].picture))
     }, []);
 
-    const img = user.large
-    
+    const img = user.large;
+
     const imgStyle = {
         borderRadius:'50%', 
         width:'70px', 
@@ -29,8 +31,6 @@ const Comment = (props) => {
         margin:'20px',
         border: '3px solid #ececec'
     }
-
-    const classes = useStyles();
     return (
         <div >
             <img style={imgStyle} src={img} alt=""/>

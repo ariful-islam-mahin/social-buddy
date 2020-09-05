@@ -17,13 +17,13 @@ const useStyles = makeStyles({
 
 const Post = (props) => {
     const {title, id} = props.post;
+    const classes = useStyles();
 
     const history = useHistory();
     const handleClick = () => {
         history.push(`/post/${id}`)
     };
 
-    const classes = useStyles();
     return (
         <Card className={classes.root} variant="outlined">
             <CardActionArea >

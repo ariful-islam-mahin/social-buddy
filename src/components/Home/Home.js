@@ -23,11 +23,9 @@ const Home = () => {
     const classes = useStyles();
     return (
         <div>
-            <div className={classes.root}>
-                <Typography variant="h4" gutterBottom>
-                Social Buddy
-                </Typography>
-            </div>
+            <Typography className={classes.root} variant="h4" gutterBottom>
+            Social Buddy
+            </Typography>
             {
                 posts.map(post => <Post post={post}/>)
             }

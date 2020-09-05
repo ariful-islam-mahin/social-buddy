@@ -17,15 +17,16 @@ const useStyles = makeStyles({
 
 const PostDetail = () => {
     const {postId} = useParams();
+    const classes = useStyles();
 
-    const [detail, setDetail] = useState([]);
+    const [details, setDetails] = useState([]);
     const [comments, setComments] = useState([]);
 
     // post details api
     useEffect(() => {
         fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
         .then(res => res.json())
-        .then(data => setDetail(data))
+        .then(data => setDetails(data))
     }, []);
     
     // comments api
@@ -35,8 +36,7 @@ const PostDetail = () => {
         .then(data => setComments(data))
     }, [])
 
-    const {title, body} = detail
-    const classes = useStyles();
+    const {title, body} = details
 
     return (
         <div>
